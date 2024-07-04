@@ -1,21 +1,35 @@
 {
-  "name": "example-with-tailwindcss",
+  "name": "chess2",
   "type": "module",
   "scripts": {
-    "dev": "vinxi dev",
-    "build": "vinxi build",
-    "start": "vinxi start"
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "style": "prettier  --write \"src/**/*.{ts,tsx}\"",
+    "style:ci": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "preview": "vite preview",
+    "deploy": "run-s build deploy:deno",
+    "deploy:deno": "cd dist/ && deployctl deploy --allow-sys --prod --project=kyeotic-chess2 https://deno.land/x/spa_server@0.3.0/mod.ts"
   },
   "dependencies": {
     "@solidjs/router": "^0.13.6",
     "@solidjs/start": "^1.0.2",
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "solid-js": "^1.8.17",
-    "tailwindcss": "^3.4.3",
-    "vinxi": "^0.3.12"
+    "classnames": "^2.5.1",
+    "fischer960": "^1.0.0",
+    "lodash-es": "^4.17.21",
+    "solid-js": "^1.8.17"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.12",
+    "@unocss/preset-wind": "^0.61.0",
+    "autoprefixer": "^10.4.19",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.3.3",
+    "vite-plugin-solid": "^2.10.2"
   }
 }
