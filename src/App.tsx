@@ -1,5 +1,4 @@
 import './app.css'
-import Piece from './components/Piece'
 import { Board } from './components/Board'
 import { createSignal } from 'solid-js'
 import { range, sample, random } from 'lodash-es'
@@ -31,14 +30,6 @@ export default function App() {
         </p>
       </div>
       <Button onclick={generate}>Generate</Button>
-    </div>
-  )
-}
-
-function PieceBlock(props: { piece?: string }) {
-  return (
-    <div style={{ 'max-width': '200px', 'max-height': '200px' }}>
-      <Piece piece={PieceType.King} />
     </div>
   )
 }
