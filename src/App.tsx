@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <div class="game justify-center">
-      <div style={{ transform: 'rotateX(180deg)' }}>
+      <div style={{ transform: 'rotate(180deg)' }}>
         <PlayerBlock player={players().one} />
       </div>
       <div class="relative">
@@ -44,7 +44,7 @@ function PlayerBlock(props: { player: Player }) {
   const title = 'text-lg font-bold pb-2 -mt-1 block'
   return (
     <div class="grid grid-rows-2 place-content-center">
-      <div style={{ transform: 'rotateX(180deg)' }}>
+      <div style={{ transform: 'rotate(180deg)' }}>
         <span class={title}>{props.player.army}</span>
       </div>
       <span class={title}>{props.player.army}</span>
