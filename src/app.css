@@ -22,3 +22,16 @@ body {
 * {
   touch-action: manipulation;
 }
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.game {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 80vmin 1fr;
+  grid-template-columns: 80vmin;
+}
