@@ -4,7 +4,7 @@ import { createSignal } from 'solid-js'
 import { range, sample, random } from 'lodash-es'
 import { random as fischer } from 'fischer960'
 import { Army, Color, PieceType, Player, Players } from './types'
-import Button from './components/Button'
+import { BASE, COLOR_BASE } from './components/Button'
 
 export default function App() {
   const [players, setPlayers] = createSignal<Players>(randomizePlayers())
@@ -26,7 +26,13 @@ export default function App() {
         <Board squares={squares()} />
 
         <div class="absolute inset-0 grid place-content-center">
-          <Button onclick={generate}>Generate</Button>
+          <button
+            onclick={generate}
+            class={`${BASE} ${COLOR_BASE} py-2 px-6 font-bold`}
+            style={{ 'font-size': '5vmin' }}
+          >
+            Generate
+          </button>
         </div>
       </div>
       <PlayerBlock player={players().two} />

@@ -4,6 +4,7 @@ import classNames from 'classnames'
 interface ButtonProps
   extends ParentProps<JSX.ButtonHTMLAttributes<HTMLButtonElement>> {
   small?: boolean
+  xl?: boolean
   danger?: boolean
   secondary?: boolean
   class?: string
@@ -11,12 +12,13 @@ interface ButtonProps
   color?: keyof typeof BUTTON_COLORS
 }
 
-const BASE = 'font-bold rounded-lg text-white'
+export const BASE = 'font-bold rounded-lg text-white'
 const MEDIUM = 'py-2 px-4'
 const SMALL = 'py-0.5 px-3'
+const XL = 'px-6 py-3.5 text-base font-medium'
 const DISABLED = 'opacity-50 cursor-not-allowed'
 
-const COLOR_BASE = 'bg-teal-500 hover:bg-teal-700'
+export const COLOR_BASE = 'bg-teal-500 hover:bg-teal-700'
 const COLOR_DANGER = 'bg-red-500 hover:bg-red-700'
 const COLOR_SECONDARY = 'bg-gray-500 hover:bg-gray-700'
 
@@ -46,6 +48,7 @@ export default function Button(props: ButtonProps) {
       'class',
       'extraClass',
       'small',
+      'xl',
       'danger',
       'secondary',
       'disabled',
@@ -59,7 +62,7 @@ export default function Button(props: ButtonProps) {
     let result = classNames(
       merged.class,
       merged.extraClass,
-      merged.small ? SMALL : MEDIUM,
+      merged.small ? SMALL : merged.xl ? XL : MEDIUM,
       merged.danger
         ? COLOR_DANGER
         : merged.secondary
