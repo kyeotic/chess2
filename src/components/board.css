@@ -23,3 +23,8 @@
 .board-square:nth-child(16n + 15) {
   background-color: #878787;
 }
+
+/* rotate top players pieces so they can be seen easily on a phone */
+.board-square:nth-child(-n + 16) {
+  transform: rotateX(180deg);
+}
