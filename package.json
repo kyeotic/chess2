@@ -9,7 +9,7 @@
     "style:ci": "prettier --check \"src/**/*.{ts,tsx}\"",
     "preview": "vite preview",
     "deploy": "run-s build deploy:deno",
-    "deploy:deno": "cd dist/ && deployctl deploy --allow-sys --prod --project=kyeotic-chess2 https://deno.land/x/spa_server@0.3.0/mod.ts"
+    "deploy:deno": "cd dist/ && deployctl deploy --allow-sys --prod --project=kyeotic-chess2 jsr:@kyeotic/server/spa"
   },
   "dependencies": {
     "@solidjs/router": "^0.13.6",
